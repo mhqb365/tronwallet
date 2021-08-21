@@ -1,6 +1,12 @@
 <template>
-  <div class="container pt-4">
-    <router-view />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 bg-light full-heigh pt-4">
+        <router-view />
+      </div>
+      <div class="col-md-4"></div>
+    </div>
   </div>
 </template>
 
@@ -11,7 +17,7 @@ export default {
 </script>
 
 <style>
-a {
-  text-decoration: none;
+.full-heigh {
+  height:100vh;
 }
 </style>

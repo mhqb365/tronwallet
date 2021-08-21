@@ -9,21 +9,14 @@
         :width="200"
         :height="200"
         :value="wallet.address"
-        image="tron.png"
+        image="logo.png"
       />
     </div>
 
     <label class="form-label">Deposit address</label>
 
     <div class="input-group mb-3">
-      <input
-        v-model="wallet.address"
-        type="text"
-        class="form-control"
-        placeholder="Recipient's username"
-        aria-label="Recipient's username"
-        aria-describedby="basic-addon2"
-      />
+      <input v-model="wallet.address" type="text" class="form-control" />
 
       <button
         v-clipboard:copy="wallet.address"

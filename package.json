@@ -4,7 +4,8 @@
   "scripts": {
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "dev": "vue-cli-service serve --open"
+    "dev": "vue-cli-service serve --open",
+    "deploy": "git add . && git commit -m :rocket: && git push -u origin master"
   },
   "dependencies": {
     "@soerenmartius/vue3-clipboard": "^0.1.2",
