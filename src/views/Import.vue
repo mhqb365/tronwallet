@@ -4,14 +4,16 @@
       <router-link to="/">Back</router-link>
     </div>
 
-    <div class="mb-3">
-      <label class="form-label">Private key</label>
-      <input v-model="privateKey" type="password" class="form-control" />
-    </div>
+    <div class="bg-white p-4">
+      <div class="mb-3">
+        <label>Private key</label>
+        <input v-model="privateKey" type="password" class="form-control" />
+      </div>
 
-    <button type="button" class="btn btn-primary" @click="importPrivateKey">
-      Import
-    </button>
+      <button type="button" class="btn btn-primary" @click="importPrivateKey">
+        Import
+      </button>
+    </div>
   </div>
 </template>
 
@@ -34,6 +36,10 @@ export default {
         return Swal.fire({
           text: "Wrong private key",
           icon: "warning",
+          position: "top",
+          toast: true,
+          showConfirmButton: false,
+          timer: 15e2,
         });
 
       localStorage.setItem(

@@ -1,14 +1,14 @@
 <template>
-  <div class="text-center">
+  <div class="text-center bg-white p-4">
     <div v-if="wallet">
       <Wallet />
     </div>
 
     <div v-else>
-      <h3 class="display-4 p-4">Empty wallet</h3>
+      <h3 class="display-4 mt-5">Empty wallet</h3>
 
       <router-link to="/import">
-        <button type="button" class="btn btn-primary">Import wallet</button>
+        <button type="button" class="btn btn-primary my-5">Import wallet</button>
       </router-link>
     </div>
   </div>

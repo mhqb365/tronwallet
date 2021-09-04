@@ -4,28 +4,32 @@
       <router-link to="/">Back</router-link>
     </div>
 
-    <div class="mb-3 text-center">
-      <QRCodeVue3
-        :width="200"
-        :height="200"
-        :value="wallet.address"
-        image="logo.png"
-      />
-    </div>
+    <div class="text-center bg-white p-4">
+      <div class="mb-5">
+        <QRCodeVue3
+          :width="200"
+          :height="200"
+          :value="wallet.address"
+          :dotsOptions="{
+            type: 'square',
+            color: '#000',
+          }"
+          :cornersSquareOptions="{
+            type: 'square',
+            color: '#000',
+          }"
+        />
+      </div>
 
-    <label class="form-label">Deposit address</label>
-
-    <div class="input-group mb-3">
-      <input v-model="wallet.address" type="text" class="form-control" />
-
-      <button
-        v-clipboard:copy="wallet.address"
-        v-clipboard:success="copySuccess"
-        type="button"
-        class="btn btn-primary"
-      >
-        Copy
-      </button>
+      <div>
+        <strong
+          class="text-danger bg-light p-2 wallet-address"
+          v-clipboard:copy="wallet.address"
+          v-clipboard:success="copySuccess"
+        >
+          {{ wallet.address }} <i class="fas fa-copy"></i>
+        </strong>
+      </div>
     </div>
   </div>
 </template>
@@ -50,6 +54,10 @@ export default {
       Swal.fire({
         text: "Copy success",
         icon: "success",
+        position: "top",
+        toast: true,
+        showConfirmButton: false,
+        timer: 15e2,
       });
     },
   },
@@ -57,4 +65,7 @@ export default {
 </script>
 
 <style>
+.wallet-address {
+  cursor: pointer;
+}
 </style>

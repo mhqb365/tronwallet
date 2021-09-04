@@ -4,20 +4,21 @@
       <router-link to="/">Back</router-link>
     </div>
 
-    <div>
-      <h5>Balance: {{ Number(balance).toLocaleString() }} TRX</h5>
-
+    <div class="bg-white p-4">
       <div class="mb-3">
-        <label class="form-label">Address</label>
+        <label>Receiving account</label>
         <input v-model="address" type="text" class="form-control" />
       </div>
 
       <div class="mb-3">
-        <label class="form-label">Amount</label>
+        <label>Transfer amount</label><br />
+        <small class="text-muted">
+          Available balance: {{ Number(balance).toLocaleString() }} TRX
+        </small>
         <input v-model="amount" type="number" class="form-control" />
       </div>
 
-      <button type="button" class="btn btn-primary" @click="send">Send</button>
+      <button type="submit" class="btn btn-primary" @click="send">Send</button>
     </div>
   </div>
 </template>
@@ -30,19 +31,15 @@ import Swal from "sweetalert2";
 export default {
   data() {
     return {
-      balance: 0,
       address: "",
       amount: "",
     };
   },
   created() {
     document.title = "Send";
-    tronWeb.trx.getBalance(this.wallet.address).then((response) => {
-      this.balance = tronWeb.fromSun(response);
-    });
   },
   computed: {
-    ...mapGetters(["wallet"]),
+    ...mapGetters(["wallet", "balance"]),
   },
   methods: {
     send() {
@@ -50,6 +47,10 @@ export default {
         return Swal.fire({
           text: "Invalid address or amount",
           icon: "warning",
+          position: "top",
+          toast: true,
+          showConfirmButton: false,
+          timer: 15e2,
         });
 
       tronWeb.setPrivateKey(this.wallet.privateKey);
@@ -64,6 +65,10 @@ export default {
             Swal.fire({
               text: "Success",
               icon: "success",
+              position: "top",
+              toast: true,
+              showConfirmButton: false,
+              timer: 15e2,
             });
         });
     },

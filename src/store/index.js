@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import wallet from './modules/wallet'
+import balance from './modules/balance'
 
 export default createStore({
     state: {
@@ -11,6 +12,7 @@ export default createStore({
     actions: {
     },
     modules: {
-        wallet
+        wallet,
+        balance
     }
 })

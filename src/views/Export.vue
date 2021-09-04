@@ -4,9 +4,9 @@
       <router-link to="/">Back</router-link>
     </div>
 
-    <div>
-      <label class="form-label">Privatekey</label>
-      <div class="input-group mb-3">
+    <div class="bg-white p-4">
+      <label>Privatekey</label>
+      <div class="input-group">
         <input
           v-model="wallet.privateKey"
           type="password"
@@ -42,6 +42,10 @@ export default {
       Swal.fire({
         text: "Success",
         icon: "success",
+        position: "top",
+        toast: true,
+        showConfirmButton: false,
+        timer: 15e2,
       });
     },
   },

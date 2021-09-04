@@ -1,11 +1,9 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4 bg-light full-heigh pt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-5 bg-light full-heigh pt-5">
         <router-view />
       </div>
-      <div class="col-md-4"></div>
     </div>
   </div>
 </template>
@@ -17,7 +15,9 @@ export default {
 </script>
 
 <style>
+@import url("https://use.fontawesome.com/releases/v5.7.0/css/all.css");
+
 .full-heigh {
-  height:100vh;
+  height: 100vh;
 }
 </style>
