@@ -4,23 +4,19 @@
       <router-link to="/">Back</router-link>
     </div>
 
-    <div class="bg-white p-4">
-      <label>Privatekey</label>
-      <div class="input-group">
-        <input
-          v-model="wallet.privateKey"
-          type="password"
-          class="form-control"
-        />
+    <div class="text-center bg-white p-4">
+      <p class="text-muted">
+        This is private key, be careful with it
+      </p>
 
-        <button
+      <div>
+        <strong
+          class="text-danger bg-light p-2 wallet-address"
           v-clipboard:copy="wallet.privateKey"
           v-clipboard:success="copySuccess"
-          type="button"
-          class="btn btn-primary"
         >
-          Copy
-        </button>
+          {{ getPrivateKey(wallet.privateKey) }} <i class="fas fa-copy"></i>
+        </strong>
       </div>
     </div>
   </div>
@@ -38,6 +34,9 @@ export default {
     ...mapGetters(["wallet"]),
   },
   methods: {
+    getPrivateKey(privateKey) {
+      return privateKey.slice(0, 5) + "..." + privateKey.slice(-5);
+    },
     copySuccess() {
       Swal.fire({
         text: "Success",
@@ -52,5 +51,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

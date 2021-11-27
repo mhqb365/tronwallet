@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style>
-@import url("https://use.fontawesome.com/releases/v5.7.0/css/all.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css");
 
 .full-heigh {
   height: 100vh;

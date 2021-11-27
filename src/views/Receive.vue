@@ -5,6 +5,11 @@
     </div>
 
     <div class="text-center bg-white p-4">
+      <p class="text-muted">
+        Only send TRX to this address
+        <br />1 confirmation(s) required
+      </p>
+
       <div class="mb-5">
         <QRCodeVue3
           :width="200"
@@ -27,7 +32,7 @@
           v-clipboard:copy="wallet.address"
           v-clipboard:success="copySuccess"
         >
-          {{ wallet.address }} <i class="fas fa-copy"></i>
+          {{ getAddress(wallet.address) }} <i class="fas fa-copy"></i>
         </strong>
       </div>
     </div>
@@ -50,6 +55,9 @@ export default {
     ...mapGetters(["wallet"]),
   },
   methods: {
+    getAddress(address) {
+      return address.slice(0, 5) + "..." + address.slice(-4);
+    },
     copySuccess() {
       Swal.fire({
         text: "Copy success",

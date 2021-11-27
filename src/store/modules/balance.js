@@ -19,8 +19,11 @@ const mutations = {
 
 const actions = {
   getBalance: async function(context) {
-    let bal = await tronGrid.account.get(context.getters.wallet.address);
-    context.commit("setBalance", tronWeb.fromSun(bal.data[0].balance));
+    const { data } = await tronGrid.account.get(context.getters.wallet.address);
+    // console.log(data);
+    let balance = 0;
+    if (data.length > 0) balance = data[0].balance;
+    context.commit("setBalance", tronWeb.fromSun(balance));
   },
 };
 

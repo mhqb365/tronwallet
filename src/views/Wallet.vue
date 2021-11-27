@@ -1,13 +1,19 @@
 <template>
   <div>
-    <h1 class="p-4">{{ Number(balance).toLocaleString() }} TRX</h1>
-
-    <router-link to="/receive">
-      <button type="button" class="btn btn-success m-2">Receive</button>
-    </router-link>
+    <h1 class="p-4">{{ balance }} TRX</h1>
 
     <router-link to="/send">
-      <button type="button" class="btn btn-danger m-2">Send</button>
+      <button type="button" class="btn btn-danger m-1">
+        <i class="far fa-arrow-alt-circle-up"></i>
+        Send
+      </button>
+    </router-link>
+
+    <router-link to="/receive">
+      <button type="button" class="btn btn-success m-1">
+        <i class="far fa-arrow-alt-circle-down"></i>
+        Receive
+      </button>
     </router-link>
 
     <a
@@ -15,11 +21,17 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <button type="button" class="btn btn-info m-2">Detail</button>
+      <button type="button" class="btn btn-info m-1">
+        <i class="fas fa-external-link-square-alt"></i>
+        Detail
+      </button>
     </a>
 
     <router-link to="/export">
-      <button type="button" class="btn btn-warning m-2">Export</button>
+      <button type="button" class="btn btn-warning m-1">
+        <i class="fas fa-file-download"></i>
+        Export
+      </button>
     </router-link>
   </div>
 </template>
@@ -48,5 +60,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

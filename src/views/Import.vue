@@ -10,9 +10,12 @@
         <input v-model="privateKey" type="password" class="form-control" />
       </div>
 
-      <button type="button" class="btn btn-primary" @click="importPrivateKey">
-        Import
-      </button>
+      <div class="d-grid">
+        <button type="button" class="btn btn-primary" @click="importPrivateKey">
+          <i class="fas fa-file-import"></i>
+          Import
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -56,5 +59,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
