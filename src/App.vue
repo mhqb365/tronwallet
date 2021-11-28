@@ -3,6 +3,12 @@
     <div class="row justify-content-center">
       <div class="col-md-5 bg-light full-heigh pt-5">
         <router-view />
+
+        <div class="mt-4 text-center">
+          <a href="https://github.com/mhqb365/tronwallet" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
       </div>
     </div>
   </div>

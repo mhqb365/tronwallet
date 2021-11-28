@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="p-4">{{ balance }} TRX</h1>
+    <h2 class="p-4">{{ balance }} TRX</h2>
 
     <router-link to="/send">
       <button type="button" class="btn btn-danger m-1">
@@ -33,13 +33,19 @@
         Export
       </button>
     </router-link>
+
+    <Delete />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Delete from "@/components/Delete";
 
 export default {
+  components: {
+    Delete,
+  },
   data() {
     return {
       detailUrl:
